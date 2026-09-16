@@ -1,0 +1,21 @@
+# Entorno reproducible del curso — El Metaverso 2026-II
+#
+# Crea el entorno con:
+#     conda env create -f environment.yml
+# o, si lo creas a mano (lo que hacemos en clase, paso a paso):
+#     conda create -n mv2026 python=3.12
+#     conda activate mv2026
+#     conda install -c conda-forge notebook numpy matplotlib pythreejs
+#
+# Canal conda-forge (libre), NO defaults. Instalación Miniconda "Just Me" (sin admin).
+# Mesa y scikit-learn se agregan en la Unidad 2; Ursina (pip) en la Unidad 3; A-Frame/glTF
+# no requieren instalación (son archivos estáticos que abren en el navegador).
+name: mv2026
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - notebook
+  - numpy
+  - matplotlib
+  - pythreejs

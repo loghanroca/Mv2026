@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+  Semana 4 - Escena inmersiva minima (A-Frame / WebXR) - El Metaverso 2026-II
+
+  Este archivo es HTML plano: se abre con doble clic en CUALQUIER navegador, sin instalar
+  nada. La etiqueta <script> de abajo trae A-Frame desde internet (CDN) la primera vez que
+  abre la pagina; despues de eso el navegador la deja en cache.
+
+  Si el salon no tiene internet ese dia: descargue una vez aframe.min.js (por ejemplo desde
+  https://aframe.io/releases/1.5.0/aframe.min.js), guardelo en esta misma carpeta, y cambie
+  la linea del <script src="..."> de abajo por src="aframe.min.js" (archivo local).
+
+  Mismos numeros que ayer en escena_3d.ipynb (pythreejs): el objetivo de hoy es que la MISMA
+  escena, con las MISMAS posiciones, se vea en dos formatos abiertos distintos.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Semana 4 — Galería inmersiva</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+<body style="margin: 0;">
+
+  <a-scene>
+
+    <!-- Cielo y luces: sin esto, MeshStandardMaterial (aca "standard" tambien) se ve negro,
+         igual que ayer en pythreejs. -->
+    <a-sky color="#ECECEC"></a-sky>
+    <a-light type="ambient" intensity="0.4"></a-light>
+    <a-light type="directional" intensity="1.0" position="5 8 5"></a-light>
+
+    <!-- El piso: PlaneGeometry(width=40, height=20) en [5, 0, 0], igual que ayer.
+         rotation="-90 0 0" lo acuesta (por defecto un plano queda parado, mirando a la camara). -->
+    <a-plane position="5 0 0" rotation="-90 0 0" width="40" height="20" color="#b9b0a0"></a-plane>
+
+    <!-- La pared: BoxGeometry(14, 4, 0.2) en [0, 2, -4], igual que ayer. -->
+    <a-box position="0 2 -4" width="14" height="4" depth="0.2" color="#e4ded0"></a-box>
+
+    <!-- "El Reflejo Digital", YA REUBICADA en la sala nueva: [13.0, 0.0, 2.5]
+         (el resultado CORRECTO de escalar-y-luego-trasladar de ayer). Este es el ejemplo
+         resuelto: siga exactamente este patron para las dos obras que faltan. -->
+    <a-box position="13.0 0.0 2.5" width="1.0" height="1.0" depth="0.1" color="#3b7dd8"></a-box>
+
+    <!-- [Trabajo del estudiante] TODO 1: agregue "Fragmentos", reubicada en [10.5, 0.75, 1.0],
+         color #d8823b, mismas dimensiones (1.0 x 1.0 x 0.1), siguiendo el <a-box> de arriba. -->
+    <a-box position="10.5 0.75 1.0" width="1.0" height="1.0" depth="0.1" color="#d8823b"></a-box>
+
+    <!-- [Trabajo del estudiante] TODO 2: agregue "Eco", reubicada en [14.5, 0.0, 0.5],
+         color #4caf7d, mismas dimensiones. -->
+     <a-box position="14.5 0.0 0.5" width="1.0" height="1.0" depth="0.1" color="#4caf7d"></a-box>
+
+    <!-- [Trabajo del estudiante] TODO 3: agregue "Punto de Fuga" (la escultura), en
+         [2.12, 0.0, 2.12], color #9b59b6. OJO: es una ESFERA, no una caja -->
+    <!-- pista: <a-sphere position="..." radius="0.5" color="..."></a-sphere> -->
+     <a-sphere position="2.12 0.0 2.12" radius="0.5" color="#9b59b6"></a-sphere>
+
+
+    <!-- La camara: a diferencia de pythreejs (que solo mira desde afuera con OrbitControls),
+         A-Frame la pone a la altura de los ojos (1.6 m) y permite CAMINAR de verdad
+         (WASD en computador, mirar con el mouse o con la cabeza en un visor). Eso es lo que
+         hace esta escena "interactiva" en vez de solo una foto 3D. -->
+    <a-entity camera position="0 1.6 10" look-controls wasd-controls></a-entity>
+
+  </a-scene>
+
+</body>
+</html>
