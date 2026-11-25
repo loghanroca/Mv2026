@@ -1,7 +1,6 @@
 # Hosts entre dos enlaces troncales — app interactiva
 
-**URL pública:** PEGAR AQUÍ la URL de Render (por ejemplo, https://galeria-app-rojas.onrender.com)
-
+**URL pública:** https://app-loghan.onrender.com/
 **Repositorio:** https://github.com/loghanroca/Mv2026
 
 > La app corre en un plan gratuito: si nadie la ha abierto en 15 minutos, la primera carga tarda cerca de 1 minuto.
